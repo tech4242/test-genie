@@ -21,7 +21,8 @@ clean:
 	rm -f $(BINARY)
 
 run:
-	$(BINARY) -redirect-url=$(REDIRECTURL)
+	$(BINARY)
 
 deps:
 	$(GOGET) github.com/gorilla/mux
+	$(GOGET) gopkg.in/yaml.v2

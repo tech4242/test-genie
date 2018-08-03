@@ -1,24 +1,46 @@
 package main
 
 import (
-	"flag"
 	"fmt"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"path/filepath"
 )
 
+type TestGenieConfig struct {
+	Host struct {
+		Url  string `yaml:"url"`
+		Live string `yaml:"live"`
+	}
+}
+
+func get_config() TestGenieConfig {
+	config := TestGenieConfig{}
+
+	filename, _ := filepath.Abs("./config.yaml")
+	yamlFile, err1 := ioutil.ReadFile(filename)
+
+	if err1 != nil {
+		panic(err1)
+	}
+
+	err2 := yaml.Unmarshal(yamlFile, &config)
+
+	if err2 != nil {
+		log.Fatalf("error: %v", err2)
+	}
+
+	return config
+}
+
 func main() {
-	const (
-		defaultRedirect      = "http://127.0.0.1:8000"
-		defaultRedirectUsage = "default redirect url, 'http://127.0.0.1:8000'"
-	)
+	config := get_config()
 
-	redirecturl := flag.String("redirect-url", defaultRedirect, defaultRedirectUsage)
-	flag.Parse()
-
-	origin, _ := url.Parse(*redirecturl)
+	origin, _ := url.Parse(config.Host.Url)
 
 	director := func(req *http.Request) {
 		req.URL.Scheme = "http"
