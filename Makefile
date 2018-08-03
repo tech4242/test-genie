@@ -5,7 +5,7 @@ GOBUILD=go build
 GOCLEAN=go clean
 GOGET=go get
 # Go paths
-PACKAGE=server
+PACKAGE=test-genie
 BINARY_PATH=./bin
 BINARY=$(BINARY_PATH)/$(PACKAGE)
 SRC=$(wildcard src/*.go)
