@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tech4242/test-genie.svg?branch=master)](https://travis-ci.org/tech4242/test-genie)
+
 # test-genie
 A small Go server to help you unit test your frontend by fetching "real" mock data from your live server.
 
