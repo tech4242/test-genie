@@ -17,7 +17,7 @@ type TestGenieConfig struct {
 func get_config() TestGenieConfig {
 	config := TestGenieConfig{}
 
-	filename, _ := filepath.Abs("./config.yaml")
+	filename, _ := filepath.Abs("./config.yml")
 	yamlFile, err1 := ioutil.ReadFile(filename)
 
 	if err1 != nil {

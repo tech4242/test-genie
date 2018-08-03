@@ -25,6 +25,8 @@ func main() {
 		if config.Host.Live {
 			_directory = r.URL.Path
 			proxy.ServeHTTP(NewCustomWriter(w), r)
+		} else {
+			panic("Feature under development!")
 		}
 	})
 
