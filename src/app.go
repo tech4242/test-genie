@@ -25,7 +25,7 @@ func get_config() TestGenieConfig {
 	yamlFile, err1 := ioutil.ReadFile(filename)
 
 	if err1 != nil {
-		panic(err1)
+		log.Fatalf("error: %v", err1)
 	}
 
 	err2 := yaml.Unmarshal(yamlFile, &config)
