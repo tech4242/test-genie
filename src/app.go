@@ -31,6 +31,7 @@ func main() {
 	proxy := &httputil.ReverseProxy{Director: director}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Printf("%v\n", w)
 		proxy.ServeHTTP(w, r)
 	})
 
