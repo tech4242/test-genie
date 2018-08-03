@@ -10,7 +10,7 @@ import (
 type TestGenieConfig struct {
 	Host struct {
 		Url  string `yaml:"url"`
-		Live string `yaml:"live"`
+		Live bool   `yaml:"live"`
 	}
 }
 

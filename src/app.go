@@ -22,8 +22,10 @@ func main() {
 	proxy := &httputil.ReverseProxy{Director: director}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		_directory = r.URL.Path
-		proxy.ServeHTTP(NewCustomWriter(w), r)
+		if config.Host.Live {
+			_directory = r.URL.Path
+			proxy.ServeHTTP(NewCustomWriter(w), r)
+		}
 	})
 
 	log.Fatal(http.ListenAndServe(":9000", nil))
