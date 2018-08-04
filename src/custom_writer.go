@@ -26,7 +26,7 @@ func (c *customWriter) Write(data []byte) (int, error) {
 	fmt.Println(string(data))       //get response here
 	fmt.Println(string(_directory)) //get response here
 
-	err := ioutil.WriteFile("src/responses/"+strings.Replace(_directory, "/", "-", -1)+".json", data, 0777)
+	err := ioutil.WriteFile("responses/"+strings.Replace(_directory, "/", "-", -1)+".json", data, 0777)
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
