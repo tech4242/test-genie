@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strings"
 )
@@ -27,9 +26,8 @@ func (c *customWriter) Write(data []byte) (int, error) {
 	fmt.Println(string(_directory)) //get response here
 
 	err := ioutil.WriteFile("responses/"+strings.Replace(_directory, "/", "-", -1)+".json", data, 0777)
-	if err != nil {
-		log.Fatalf("error: %v", err)
-	}
+	errorHandler(err)
+
 	return c.ResponseWriter.Write(data)
 }
 

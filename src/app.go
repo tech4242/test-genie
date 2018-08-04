@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	config := get_config()
-	origin, _ := url.Parse(config.Host.Url)
+	config := getConfig()
+	origin, _ := url.Parse(config.Host.URL)
 	director := func(req *http.Request) {
 		req.URL.Scheme = "http"
 		req.URL.Host = origin.Host
