@@ -47,6 +47,7 @@ This list will hopefully get larger and not smaller over time :) Currently:
 * Actually finish the mock server
 * Multi-stage Docker build
 * Build a generic parser for Swagger and Postman, so you can do `make run` and depending on your .yml config run all your existing APIs instead of calling them one by one from the frontend.
+* Spend more than 30 min on the logo. 
 
 ## Credits
 
