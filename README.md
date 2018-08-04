@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/tech4242/test-genie.svg?branch=master)](https://travis-ci.org/tech4242/test-genie)
 
-![Test Genie](/img/test-genie.png)
-
 # test-genie
 A small Go server to help you unit test your frontend by fetching "real" mock data from your live server. The whole point is to let you unit test your frontend with up-to-date data instead of static json files in your frontend code.
+
+![Test Genie](/img/test-genie.png)
 
 ## Setup
 
@@ -47,7 +47,7 @@ This list will hopefully get larger and not smaller over time :) Currently:
 * Actually finish the mock server
 * Multi-stage Docker build
 * Build a generic parser for Swagger and Postman, so you can do `make run` and depending on your .yml config run all your existing APIs instead of calling them one by one from the frontend.
-* Spend more than 30 min on the logo. 
+* Spend more than 30 min on the logo.
 
 ## Credits
 
