@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/tech4242/test-genie.svg?branch=master)](https://travis-ci.org/tech4242/test-genie)
 
+![Test Genie](/img/test-genie.png)
+
 # test-genie
 A small Go server to help you unit test your frontend by fetching "real" mock data from your live server. The whole point is to let you unit test your frontend with up-to-date data instead of static json files in your frontend code.
 
@@ -48,4 +50,4 @@ This list will hopefully get larger and not smaller over time :) Currently:
 
 ## Credits
 
-Special thanks to @turbinenreiter for the help with the Makefile and to @signalkraft for the initial idea for how to solve this! And kudos to Google for golang!
+Special thanks to @turbinenreiter for the help with the Makefile and to @signalkraft for the initial idea for how to solve this! Kudos to Google for golang and thanks to Takuya Ueda for the gopher vector under CC!
