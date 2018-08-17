@@ -36,16 +36,21 @@ make run
 
 This will run on `localhost:9000` and map to the `url` in the `config.yml`
 
+### Run with Docker
+
+```
+docker build . --tag=test-genie
+docker run -p 9000:9000 test-genie:latest
+```
+
 ### Postman
 
 You can just create your normal Postman requests now and you can pass your token (Bearer or otherwise) to the live server as we only pass the request to your actual server.
 
 ## Wishlist
 
-This list will hopefully get larger and not smaller over time :) Currently:
+This list will hopefully get larger and not smaller over time :) The current to-do's are not here but instead under "Projects" in a Kanban board! 
 
-* Actually finish the mock server
-* Multi-stage Docker build
 * Build a generic parser for Swagger and Postman, so you can do `make run` and depending on your .yml config run all your existing APIs instead of calling them one by one from the frontend.
 * Spend more than 30 min on the logo.
 
