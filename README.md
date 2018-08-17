@@ -40,7 +40,7 @@ This will run on `localhost:9000` and map to the `url` in the `config.yml`
 
 ```
 docker build . --tag=test-genie
-docker run -p 8000:8000 test-genie:latest
+docker run -p 9000:9000 test-genie:latest
 ```
 
 ### Postman

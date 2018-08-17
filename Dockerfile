@@ -11,4 +11,4 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /build/
 COPY --from=golang-build /go/src/test-genie/ .
 CMD ["./bin/test-genie"]
-EXPOSE 8000
+EXPOSE 9000
