@@ -16,17 +16,19 @@ func main() {
 		req.URL.Host = origin.Host
 		req.Host = origin.Host
 	}
-
-	fmt.Printf("Routing to host: %v\n", origin.Host)
-
 	proxy := &httputil.ReverseProxy{Director: director}
+	if config.Host.Live {
+		fmt.Printf("Routing to host: %v\n", origin.Host)
+	} else {
+		fmt.Printf("Serving mock data from: %v\n", origin.Host)
+	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if config.Host.Live {
 			_directory = r.URL.Path
 			proxy.ServeHTTP(NewCustomWriter(w), r)
 		} else {
-			panic("Feature under development!")
+			serveMockData(NewCustomWriter(w), r)
 		}
 	})
 
