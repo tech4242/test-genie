@@ -13,3 +13,4 @@
 /bin
 config.yml
 *.json
+*.DS_Store

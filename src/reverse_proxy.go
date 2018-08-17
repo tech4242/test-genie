@@ -10,7 +10,7 @@ import (
 func startReverseProxy(config TestGenieConfig) {
 	origin, _ := url.Parse(config.Host.URL)
 	director := func(req *http.Request) {
-		req.URL.Scheme = "http"
+		req.URL.Scheme = "https"
 		req.URL.Host = origin.Host
 		req.Host = origin.Host
 	}

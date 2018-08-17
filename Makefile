@@ -26,3 +26,4 @@ run:
 deps:
 	$(GOGET) github.com/gorilla/mux
 	$(GOGET) gopkg.in/yaml.v2
+	$(GOGET) github.com/grokify/html-strip-tags-go
