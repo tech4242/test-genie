@@ -28,7 +28,7 @@ func startReverseProxy(config TestGenieConfig) {
 			_directory = r.URL.Path
 			proxy.ServeHTTP(NewCustomWriter(w), r)
 		} else {
-			serveMockData(NewCustomWriter(w), r)
+			serveMockData(w, r)
 		}
 	})
 }
