@@ -17,6 +17,7 @@ func serveMockData(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "500 - Something bad happened!")
 	} else {
 		customWriter := NewCustomWriter(w)
+		w.WriteHeader(http.StatusOK)
 		fmt.Fprintf(customWriter, "%s", string(file))
 	}
 }
