@@ -2,19 +2,22 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net/http"
-	"strings"
 )
 
 var _directory = ""
 
 type customWriter struct {
 	http.ResponseWriter
+	status      int
+	wroteHeader bool
 }
 
 func NewCustomWriter(w http.ResponseWriter) *customWriter {
-	return &customWriter{w}
+	return &customWriter{ResponseWriter: w}
+}
+func (w *customWriter) Status() int {
+	return w.status
 }
 
 func (c *customWriter) Header() http.Header {
@@ -22,15 +25,24 @@ func (c *customWriter) Header() http.Header {
 }
 
 func (c *customWriter) Write(data []byte) (int, error) {
-	fmt.Println(string(data))       //get response here
-	fmt.Println(string(_directory)) //get response here
+	if c.status == http.StatusOK {
+		parentFolder := "responses"
+		fileName := "response"
+		fileExtension := ".json"
+		writeToFileSystem(data, _directory, fileName, fileExtension, parentFolder)
 
-	err := ioutil.WriteFile("responses/"+strings.Replace(_directory, "/", "-", -1)+".json", data, 0777)
-	errorHandler(err)
-
+	}
+	fmt.Printf("Data: %v\n", string(data))
 	return c.ResponseWriter.Write(data)
 }
 
 func (c *customWriter) WriteHeader(i int) {
+
+	if c.wroteHeader == true {
+		return
+	}
+	c.status = i
+	c.wroteHeader = true
 	c.ResponseWriter.WriteHeader(i)
+
 }
