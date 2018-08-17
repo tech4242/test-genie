@@ -1,3 +1,4 @@
 host:
-  url: ""
+  url: "https://www.google.com"
   live: true
+  refresh: false

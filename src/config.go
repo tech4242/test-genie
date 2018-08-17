@@ -9,8 +9,9 @@ import (
 
 type TestGenieConfig struct {
 	Host struct {
-		URL  string `yaml:"url"`
-		Live bool   `yaml:"live"`
+		URL     string `yaml:"url"`
+		Live    bool   `yaml:"live"`
+		Refresh bool   `yaml:"refresh"`
 	}
 }
 
